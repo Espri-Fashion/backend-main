@@ -52,3 +52,12 @@ jobs:
           docker tag $IMAGE_NAME:latest europe-west1-docker.pkg.dev/$PROJECT_ID/espri-main-service/$IMAGE_NAME:$GIT_TAG
           docker push europe-west1-docker.pkg.dev/$PROJECT_ID/espri-main-service/$IMAGE_NAME:latest
           docker push europe-west1-docker.pkg.dev/$PROJECT_ID/espri-main-service/$IMAGE_NAME:$GIT_TAG
+
+      - name: Deploy to GCP Cloud Run
+        uses: google-github-actions/deploy-cloudrun@v2
+        env:
+          GIT_TAG: ${{ steps.increment-git-tag.outputs.git-tag }}
+        with:
+          service: espri-backend-main
+          region: europe-west1
+          image: europe-west1-docker.pkg.dev/$PROJECT_ID/espri-main-service/$IMAGE_NAME:$GIT_TAG
