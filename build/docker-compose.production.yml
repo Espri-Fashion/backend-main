@@ -1,0 +1,12 @@
+version: '3.9'
+
+services:
+  api:
+    build:
+      dockerfile: build/Dockerfile
+      context: ../
+      target: production
+    environment:
+      PORT: 4000
+    ports:
+      - 4000:4000
