@@ -1,14 +1,14 @@
 name: Deploy Espri.Fashion Main
 
 on:
-  # workflow_call:
-  #   secrets:
-  #     PROJECT_ID:
-  #       required: true
-  #     SA_EMAIL:
-  #       required: true
-  #     WIF_PROVIDER:
-  #       required: true
+  workflow_call:
+    secrets:
+      PROJECT_ID:
+        required: true
+      SA_EMAIL:
+        required: true
+      WIF_PROVIDER:
+        required: true
   push:
     branches:
       - 'master'
