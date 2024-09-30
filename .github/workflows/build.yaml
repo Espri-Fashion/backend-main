@@ -20,22 +20,19 @@ jobs:
       contents: 'read'
       id-token: 'write'
     environment: GCP WIF
+    env:
+      IMAGE_NAME: espri-backend-main
+      PROJECT_ID: ${{ secrets.PROJECT_ID }}
     steps:
-      - name: Log GitHub Actions Secrets
-        env:
-          SECRET_USER: ${{ secrets.PROJECT_ID }}
-        run: |
-          echo "ID: $SECRET_USER"
-
       - name: Checkout
         uses: actions/checkout@v2
 
       - name: Install GCP CLI
         uses: google-github-actions/auth@v2
         with:
-          project_id: '${{ secrets.PROJECT_ID }}'
-          service_account: '${{ secrets.SA_EMAIL }}'
-          workload_identity_provider: '${{ secrets.WIF_PROVIDER }}'
+          project_id: ${{ secrets.PROJECT_ID }}
+          service_account: ${{ secrets.SA_EMAIL }}
+          workload_identity_provider: ${{ secrets.WIF_PROVIDER }}
 
       - name: Setup Cloud SDK
         uses: google-github-actions/setup-gcloud@v2
