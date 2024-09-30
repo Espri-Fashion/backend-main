@@ -13,7 +13,7 @@ jobs:
       id-token: 'write'
     env:
       IMAGE_NAME: espri-backend-main
-      PROJECT_ID: ${{ secrets.PROJECT_ID }}
+      PROJECT_ID: '${{ secrets.PROJECT_ID }}'
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -21,9 +21,9 @@ jobs:
       - name: Install GCP CLI
         uses: google-github-actions/auth@v2
         with:
-          project_id: ${{ secrets.PROJECT_ID }}
-          service_account: ${{ secrets.SA_EMAIL }}
-          workload_identity_provider: ${{ secrets.WIF_PROVIDER }}
+          project_id: '${{ secrets.PROJECT_ID }}'
+          service_account: '${{ secrets.SA_EMAIL }}'
+          workload_identity_provider: '${{ secrets.WIF_PROVIDER }}'
 
       - name: Setup Cloud SDK
         uses: google-github-actions/setup-gcloud@v2
