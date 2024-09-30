@@ -1,6 +1,14 @@
 name: Deploy Espri.Fashion Main
 
 on:
+  workflow_call:
+    secrets:
+      PROJECT_ID:
+        required: true
+      SA_EMAIL:
+        required: true
+      WIF_PROVIDER:
+        required: true
   push:
     branches:
       - 'master'
@@ -11,13 +19,7 @@ jobs:
     permissions:
       contents: 'read'
       id-token: 'write'
-    env:
-      IMAGE_NAME: espri-backend-main
-      PROJECT_ID: '${{ secrets.PROJECT_ID }}'
     steps:
-      - name: Test output
-        run: echo "${{ secrets.PROJECT_ID }} ${{ secrets.SA_EMAIL }} ${{ secrets.WIF_PROVIDER }} ${{ vars.APP_TEST }}"
-
       - name: Checkout
         uses: actions/checkout@v2
 
