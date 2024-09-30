@@ -15,6 +15,9 @@ jobs:
       IMAGE_NAME: espri-backend-main
       PROJECT_ID: '${{ secrets.PROJECT_ID }}'
     steps:
+      - name: Test output
+        run: echo "${{ secrets.PROJECT_ID }} ${{ secrets.SA_EMAIL }} ${{ secrets.WIF_PROVIDER }}"
+
       - name: Checkout
         uses: actions/checkout@v2
 
