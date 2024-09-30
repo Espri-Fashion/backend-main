@@ -17,8 +17,9 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     permissions:
-      contents: 'read'
-      id-token: 'write'
+      contents: write
+      actions: write
+      id-token: write
     environment: GCP WIF
     env:
       IMAGE_NAME: espri-backend-main
