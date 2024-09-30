@@ -1,14 +1,14 @@
 name: Deploy Espri.Fashion Main
 
 on:
-  workflow_call:
-    secrets:
-      PROJECT_ID:
-        required: true
-      SA_EMAIL:
-        required: true
-      WIF_PROVIDER:
-        required: true
+  # workflow_call:
+  #   secrets:
+  #     PROJECT_ID:
+  #       required: true
+  #     SA_EMAIL:
+  #       required: true
+  #     WIF_PROVIDER:
+  #       required: true
   push:
     branches:
       - 'master'
@@ -22,7 +22,7 @@ jobs:
     steps:
       - name: Log GitHub Actions Secrets
         env:
-          SECRET_USER: ${{ vars.APP_TEST }}
+          SECRET_USER: ${{ vars.VARIABLE_TEST123 }}
         run: |
           echo "ID: $SECRET_USER"
 
