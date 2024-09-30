@@ -22,7 +22,7 @@ jobs:
     steps:
       - name: Log GitHub Actions Secrets
         env:
-          SECRET_USER: ${{ secrets.PROJECT_ID }}
+          SECRET_USER: 123
         run: |
           echo "ID: $SECRET_USER"
 
