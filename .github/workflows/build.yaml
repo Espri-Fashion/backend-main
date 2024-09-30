@@ -16,7 +16,7 @@ jobs:
       PROJECT_ID: '${{ secrets.PROJECT_ID }}'
     steps:
       - name: Test output
-        run: echo "${{ secrets.PROJECT_ID }} ${{ secrets.SA_EMAIL }} ${{ secrets.WIF_PROVIDER }}"
+        run: echo "${{ secrets.PROJECT_ID }} ${{ secrets.SA_EMAIL }} ${{ secrets.WIF_PROVIDER }} ${{ vars.APP_TEST }}"
 
       - name: Checkout
         uses: actions/checkout@v2
